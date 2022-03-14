@@ -2,13 +2,37 @@
   "name": "noa",
   "version": "0.1.0",
   "license": "MIT",
+  "main": "electron/main.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
+    "electron": "wait-on tcp:8080 && cross-env NODE_ENV=development electron .",
+    "electron:serve": "concurrently -k \"yarn dev\" \"yarn electron\"",
+    "electron:build": "yarn build && electron-builder",
     "prepare": "husky install",
     "test": "jest",
     "lint": "eslint --fix"
+  },
+  "build": {
+    "appId": "com.noa-js.noa",
+    "productName": "Noa App",
+    "copyright": "Copyright © 2021 Choi-Jungwoo",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist_electron"
+    }
   },
   "lint-staged": {
     "*.{js,ts}": [
@@ -58,8 +82,12 @@
     "@vitejs/plugin-vue": "^1.6.0",
     "@vue/compiler-sfc": "^3.2.6",
     "@vue/test-utils": "^2.0.0-rc.12",
+    "concurrently": "^7.0.0",
     "consola": "^2.15.3",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
+    "electron": "^17.1.2",
+    "electron-builder": "^22.14.13",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-define-config": "^1.2.3",
@@ -89,7 +117,8 @@
     "vite-plugin-webfont-dl": "^1.0.9",
     "vite-svg-loader": "^3.1.2",
     "vue-jest": "^5.0.0-alpha.10",
-    "vue-tsc": "^0.2.2"
+    "vue-tsc": "^0.2.2",
+    "wait-on": "^6.0.1"
   },
   "config": {
     "commitizen": {

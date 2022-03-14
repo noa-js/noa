@@ -21,3 +21,17 @@ yarn dev
 ```bash
 yarn build
 ```
+
+# Electron
+
+## Start
+
+```bash
+yarn electron:serve
+```
+
+## Build
+
+```bash
+yarn electron:build
+```

@@ -22,6 +22,7 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
   const env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
   return {
+    base: './',
     plugins: [
       vue(),
       Pages(pages),

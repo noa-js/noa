@@ -1,4 +1,5 @@
 /dist/*
+/dist_electron/*
 .local
 .output.js
 /node_modules/**

@@ -1,7 +1,4 @@
 export default {
-  dirs: [
-    { dir: 'src/views/mainPages', baseRoute: '' },
-    { dir: 'src/views/user', baseRoute: 'user' },
-  ],
+  dirs: [{ dir: 'src/views/mainPages', baseRoute: '' }],
   exclude: ['**/components/*.vue'],
 };

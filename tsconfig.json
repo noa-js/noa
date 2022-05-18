@@ -23,7 +23,8 @@
     "types": ["vite/client", "jest"],
     "removeComments": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "~/*": ["./*"]
     }
   },
   "include": [

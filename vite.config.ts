@@ -13,6 +13,7 @@ import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import Pages from 'vite-plugin-pages';
 import Layouts from 'vite-plugin-vue-layouts';
+import ViteRestart from 'vite-plugin-restart';
 
 import pages from './config/pages';
 import proxy from './config/proxy';
@@ -24,6 +25,10 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
   return {
     plugins: [
       vue(),
+      ViteRestart({
+        restart: ['config/pages.ts', 'config/proxy.ts', '.env*'],
+        reload: ['config/basic.ts', 'config/routerMenu.ts'],
+      }),
       Pages(pages),
       Layouts(),
       viteMockServe({
@@ -58,6 +63,10 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
         {
           find: '@',
           replacement: resolve(__dirname, 'src'),
+        },
+        {
+          find: '~',
+          replacement: resolve(__dirname),
         },
       ],
     },

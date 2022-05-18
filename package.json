@@ -36,14 +36,15 @@
   },
   "dependencies": {
     "@xstate/vue": "^1.0.0",
+    "animate.css": "^4.1.1",
     "axios": "^0.21.1",
     "element-plus": "^2.0.5",
-    "vee-validate": "3",
+    "normalize.css": "^8.0.1",
+    "reset.css": "^2.0.2",
     "vue": "^3.2.6",
     "vue-condition-watcher": "^1.4.3",
     "vue-i18n": "9",
     "vue-router": "4",
-    "vuex": "^4.0.2",
     "xstate": "^4.30.5"
   },
   "devDependencies": {
@@ -84,6 +85,7 @@
     "vite-plugin-html": "^3.1.0",
     "vite-plugin-mock": "^2.9.6",
     "vite-plugin-pages": "^0.21.4",
+    "vite-plugin-restart": "^0.1.1",
     "vite-plugin-style-import": "^2.0.0",
     "vite-plugin-vue-layouts": "^0.6.0",
     "vite-plugin-webfont-dl": "^1.0.9",
